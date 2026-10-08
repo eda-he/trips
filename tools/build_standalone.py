@@ -74,6 +74,7 @@ def main():
         html = html.replace(tag, replacement)
 
     swap('<link rel="stylesheet" href="app/vendor/leaflet.css">', "<style>\n" + read("app/vendor/leaflet.css") + "</style>")
+    html = re.sub(r'(app/styles\.css|trips/trips\.js|app/boot\.js)\?v=[^"]*', r'\1', html)
     swap('<link rel="stylesheet" href="app/styles.css">', "<style>\n" + read("app/styles.css") + "</style>")
     swap('<script src="app/vendor/leaflet.js"></script>', "<script>\n" + safe(read("app/vendor/leaflet.js")) + "</script>")
     data = json.dumps(build_data(trip), ensure_ascii=False).replace("</", "<\\/")

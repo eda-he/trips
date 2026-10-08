@@ -19,7 +19,8 @@ h1,h2,h3,.disp{font-family:var(--font-display);}
 
 .sticky-top{position:sticky; top:0; z-index:40; box-shadow:0 2px 8px rgba(0,0,0,0.06);}
 .top{background:var(--indigo-deep); color:var(--paper); padding:16px 16px 10px;}
-.title-row{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+.top{position:relative;}
+.title-row{padding-right:40px; display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap;}
 .top h1{font-size:22px; margin:0; font-weight:700; color:#fff;}
 .top .dates{font-family:var(--font-mono); font-size:11px; color:#C7C2B6;}
 .top .data-src{font-family:var(--font-mono); font-size:10px; color:#B8B2A2; opacity:.85; margin-top:3px;}
@@ -27,6 +28,14 @@ h1,h2,h3,.disp{font-family:var(--font-display);}
 .top .subtitle{font-size:12px; color:#B8B2A2; margin-top:4px;}
 
 .search-row{display:flex; gap:8px; margin-top:12px;}
+/* Collapsible header: the ▴/▾ button hides the dates, route, data line and search */
+.header-toggle{position:absolute; top:12px; right:12px; width:30px; height:30px; border-radius:999px; border:1px solid rgba(255,255,255,.35); background:transparent; color:#fff; font-size:14px; line-height:1; cursor:pointer; padding:0;}
+.header-toggle:active{background:rgba(255,255,255,.12);}
+.top.collapsed{padding:10px 16px;}
+.top.collapsed .header-toggle{top:7px;}
+.top.collapsed .dates, .top.collapsed .subtitle, .top.collapsed .data-src, .top.collapsed .search-row{display:none;}
+.top.collapsed .title-row{flex-wrap:nowrap;}
+.top.collapsed h1{font-size:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0;}
 .search-wrap{flex:1; position:relative;}
 .search-wrap svg{position:absolute; left:10px; top:50%; transform:translateY(-50%);}
 #searchInput{

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link id="fontLink" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="app/vendor/leaflet.css">
-<link rel="stylesheet" href="app/styles.css">
+<link rel="stylesheet" href="app/styles.css?v=2026-10-08">
 </head>
 <body>
 
@@ -55,7 +55,10 @@
 <nav class="trip-switch" id="tripSwitch"></nav>
 
 <script src="app/vendor/leaflet.js"></script>
-<script src="trips/trips.js"></script>
-<script src="app/boot.js"></script>
+<!-- APP_VERSION: change this date whenever you replace files in app/, so phones fetch the new copies instead of cached old ones.
+     Also change the ?v= values on the two lines that use it below. -->
+<script>window.APP_VERSION = "2026-10-08";</script>
+<script src="trips/trips.js?v=2026-10-08"></script>
+<script src="app/boot.js?v=2026-10-08"></script>
 </body>
 </html>

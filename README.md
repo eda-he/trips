@@ -179,6 +179,7 @@ Both need Python 3 on a computer. Run them from the top folder of the repo. They
 | Stops shifted into the wrong columns | A cell contains a comma or a quote and is not wrapped in quotes. | Wrap the cell in double quotes; write a quote inside it as two quotes (`""`). Spreadsheet apps do this for you on export. |
 | A stop is missing | `Day` and `Potential Day` are both empty and its `City` matches no day's city. | Give it a `Day` or `Potential Day`, or match the city name used in `days.csv`. |
 | A stop has no map pin | `Latitude` or `Longitude` is empty or not a number. | Fill in both as plain numbers, for example `35.7099` and `139.7742`. |
+| After replacing files in `app/`, new buttons do nothing or look unstyled | Phones are mixing the new `index.html` with cached old `app/` files. | In `index.html`, change the `APP_VERSION` date and the matching `?v=` values, then commit. Also check the files went into `app/`, not the top level. |
 | Changes don't appear | The browser is showing a saved copy, or GitHub Pages is still publishing. | Wait a minute and reload. The grey line under the title shows when the data was loaded. |
 
 ## Change what a card shows

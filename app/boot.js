@@ -28,7 +28,8 @@
   }
   window.TRIP_ID = id;
   window.TRIP_BASE = 'trips/' + id + '/';
-  load(window.TRIP_BASE + 'trip.config.js',
-       () => load('app/data-loader.js'),
+  const v = '?v=' + encodeURIComponent(window.APP_VERSION || '');   // cache-buster, see index.html
+  load(window.TRIP_BASE + 'trip.config.js' + v,
+       () => load('app/data-loader.js' + v),
        () => chooser(`Could not load trips/${id}/trip.config.js. Pick a trip:`));
 })();

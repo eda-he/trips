@@ -117,7 +117,7 @@
   function boot(){
     const inline=document.getElementById('appScript');
     const s=document.createElement('script');
-    if(inline) s.textContent=inline.textContent; else s.src='app/app.js';
+    if(inline) s.textContent=inline.textContent; else s.src='app/app.js?v=' + encodeURIComponent(window.APP_VERSION || '');
     document.body.appendChild(s);
   }
   function fail(msg){
