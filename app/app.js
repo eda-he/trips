@@ -454,6 +454,11 @@ function applyTripHeader(){
   const set=(id,v)=>{ const el=document.getElementById(id); if(el && v!=null) el.textContent=v; };
   set('tripTitle', CFG.title); set('tripDates', CFG.dates); set('tripSubtitle', CFG.subtitle);
   // Links to the other trips listed in trips/trips.js (hidden when there is only one)
+  // Extra pages for this trip, from pages: [...] in trip.config.js (files in the trip's folder)
+  const pagesNav = document.getElementById('tripPages');
+  if(pagesNav && Array.isArray(CFG.pages) && CFG.pages.length){
+    pagesNav.innerHTML = CFG.pages.map(pg => `<a href="${escapeHtml((window.TRIP_BASE||'') + pg.file)}">${escapeHtml(pg.label || pg.file)}</a>`).join('');
+  }
   const others = ((window.TRIPS && window.TRIPS.list) || []).filter(t => t.id !== window.TRIP_ID);
   const nav = document.getElementById('tripSwitch');
   if(nav && others.length){

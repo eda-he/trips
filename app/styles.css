@@ -33,7 +33,7 @@ h1,h2,h3,.disp{font-family:var(--font-display);}
 .header-toggle:active{background:rgba(255,255,255,.12);}
 .top.collapsed{padding:10px 16px;}
 .top.collapsed .header-toggle{top:7px;}
-.top.collapsed .dates, .top.collapsed .subtitle, .top.collapsed .data-src, .top.collapsed .search-row{display:none;}
+.top.collapsed .dates, .top.collapsed .subtitle, .top.collapsed .data-src, .top.collapsed .search-row, .top.collapsed .trip-pages{display:none;}
 .top.collapsed .title-row{flex-wrap:nowrap;}
 .top.collapsed h1{font-size:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0;}
 .search-wrap{flex:1; position:relative;}
@@ -260,3 +260,9 @@ footer.note{text-align:center; font-size:11px; color:var(--ink-soft); padding:20
 .trip-switch{ text-align:center; font-size:12px; color:var(--ink-soft); padding:0 16px 28px; }
 .trip-switch a, .trip-list a{ color:var(--indigo, #22405f); }
 .trip-list{ list-style:none; padding:0; margin:14px 0 0; line-height:2; }
+
+/* Extra pages for a trip (pages: [...] in trip.config.js) */
+.trip-pages{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;}
+.trip-pages:empty{display:none;}
+.trip-pages a{font-size:12px; font-weight:700; color:#fff; text-decoration:none; padding:3px 10px; border:1px solid rgba(255,255,255,.35); border-radius:999px;}
+.trip-pages a:hover{background:rgba(255,255,255,.12);}

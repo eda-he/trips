@@ -81,7 +81,7 @@ def main():
     swap('<script src="trips/trips.js"></script>',
          f'<script>\nwindow.TRIPS = {{default: {json.dumps(trip)}, list: [{{id: {json.dumps(trip)}}}]}};\n'
          f'window.TRIP_ID = {json.dumps(trip)};\n</script>\n'
-         "<script>\n" + safe(read(f"trips/{trip}/trip.config.js")) + "</script>\n"
+         "<script>\n" + safe(read(f"trips/{trip}/trip.config.js")) + "\nwindow.TRIP_CONFIG.pages = [];  // extra pages are separate files, not part of the single-file build\n</script>\n"
          "<script>\nwindow.__ITIN__ = " + data + ";\n</script>")
     swap('<script src="app/boot.js"></script>',
          '<script type="text/plain" id="appScript">\n' + safe(read("app/app.js")) + "</script>\n"

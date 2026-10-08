@@ -28,6 +28,7 @@ trips/                      One folder per trip. This is where your content live
     trip.config.js          Title, dates, map start point, currency symbol, optional Google Sheet links.
     stops.csv               Every stop, one row each.
     days.csv                The title and type of each day.
+    drugstore.html          An extra page for this trip, linked from the header (see "Extra pages").
   template/                 A blank trip to copy when you start a new one.
 
 tools/                      Optional helpers. The site works without them.
@@ -130,7 +131,17 @@ Plain text settings, each with a comment in the file:
 
 - the browser tab title, header title, dates and route line;
 - where the map starts, the currency symbol, the label for the review link;
-- optional: Google Sheet links, a footer note, your own filter chips, and a `theme` block that gives this trip its own colours and fonts.
+- optional: Google Sheet links, a footer note, your own filter chips, extra pages, and a `theme` block that gives this trip its own colours and fonts.
+
+### Extra pages
+
+A trip can have its own standalone pages, such as a packing or shopping list. Put the `.html` file in the trip's folder and list it in `trip.config.js`:
+
+```js
+, pages: [ { label: "Drugstore list", file: "drugstore.html" } ]
+```
+
+Each one appears as a button under the header. The page is self-contained (its own styles and script), so you edit its text directly in the file. Give it a link back to the itinerary, such as `<a href="../../?trip=japan-2026">← Itinerary</a>`. Extra pages are left out of the single-file build.
 
 ## Add a new trip (and keep the old ones)
 

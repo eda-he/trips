@@ -34,6 +34,10 @@ window.TRIP_CONFIG = {
   // Optional: a line added to the footer after the stop counts
   , footerNote: "built from the working itinerary"
 
+  // Optional: extra pages for this trip, such as a packing or shopping list. Put the .html file in this folder;
+  // a link to it appears under the header. Add a link back to the itinerary inside that page.
+  , pages: [ { label: "Drugstore list", file: "drugstore.html" } ]
+
   // Optional: this trip's own look. Any colour or font variable at the top of app/styles.css can be set here.
   // Remove the slashes to use it. Without it the shared look applies.
   // , theme: {
