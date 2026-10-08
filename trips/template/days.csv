@@ -1,0 +1,4 @@
+Day,City,Type
+1,City A (arrival),transit
+2,City A,stay
+3,City A → City B,transit

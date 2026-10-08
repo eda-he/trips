@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Trip itinerary</title>
+<!-- Page shell. You should not need to edit this file for a new trip:
+     each trip is a folder under trips/ (settings in trip.config.js, data in stops.csv and days.csv),
+     and trips/trips.js lists them. Open index.html?trip=<folder name> to choose one. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link id="fontLink" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app/vendor/leaflet.css">
+<link rel="stylesheet" href="app/styles.css">
+</head>
+<body>
+
+<div class="sticky-top" id="stickyTop">
+  <header class="top">
+    <div class="title-row">
+      <h1 class="disp" id="tripTitle"></h1>
+      <div class="dates" id="tripDates"></div>
+    </div>
+    <div class="subtitle" id="tripSubtitle"></div>
+    <div class="data-src" id="dataSource"></div>
+    <div class="search-row">
+      <div class="search-wrap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22405f" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+        <input id="searchInput" type="text" placeholder="Search a name, neighborhood, dish…" autocomplete="off">
+      </div>
+    </div>
+  </header>
+  <div class="chip-row" id="chipRow"></div>
+  <div class="map-panel" id="mapPanel">
+    <div id="leafletMap"></div>
+    <button id="locateBtn" class="locate-btn" title="Show my location">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+    </button>
+    <div class="locate-error" id="locateError"></div>
+    <div class="map-resize-handle" id="mapResizeHandle" title="Drag to resize the map">
+      <div class="resize-grip"></div>
+    </div>
+  </div>
+  <div class="result-bar">
+    <span id="resultCount"></span>
+    <span id="catFilterLabel"></span>
+    <button id="collapseAllBtn" class="collapse-all-btn" title="Collapse all expanded days">▲ Collapse All</button>
+    <span id="visitedCount" class="visited-count-badge"></span>
+  </div>
+</div>
+
+<div class="wrap" id="routeContainer"></div>
+<div class="no-results" id="noResults" style="display:none;">No stops match — try a different search or category.</div>
+<footer class="note" id="footerNote"></footer>
+<nav class="trip-switch" id="tripSwitch"></nav>
+
+<script src="app/vendor/leaflet.js"></script>
+<script src="trips/trips.js"></script>
+<script src="app/boot.js"></script>
+</body>
+</html>
