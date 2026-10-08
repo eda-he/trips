@@ -460,3 +460,27 @@ function applyTripHeader(){
     nav.innerHTML = 'Other trips: ' + others.map(t => `<a href="?trip=${encodeURIComponent(t.id)}">${escapeHtml(t.name || t.id)}</a>`).join(' · ');
   }
 }
+
+// --- Collapsible header: the ▴/▾ button hides the dates, route, data line and search box.
+//     The choice is remembered on this device, per trip. A search typed before collapsing stays applied. ---
+(function(){
+  const top = document.querySelector('.top');
+  const btn = document.getElementById('headerToggle');
+  if(!top || !btn) return;
+  const KEY = (CFG.storageKey || window.TRIP_ID || 'trip') + '_header_collapsed';
+  function apply(collapsed){
+    top.classList.toggle('collapsed', collapsed);
+    btn.textContent = collapsed ? '▾' : '▴';
+    btn.setAttribute('aria-expanded', String(!collapsed));
+    btn.title = collapsed ? 'Show header and search' : 'Hide header and search';
+    if(leafletMap) setTimeout(()=>leafletMap.invalidateSize(), 0);
+  }
+  let collapsed = false;
+  try { collapsed = localStorage.getItem(KEY) === '1'; } catch(e){}
+  apply(collapsed);
+  btn.addEventListener('click', ()=>{
+    collapsed = !top.classList.contains('collapsed');
+    apply(collapsed);
+    try { localStorage.setItem(KEY, collapsed ? '1' : '0'); } catch(e){}
+  });
+})();
