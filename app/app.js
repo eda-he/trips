@@ -11,7 +11,7 @@ const META = DATA.meta;
 const STOPS = DATA.stops;
 const dayNums = Object.keys(META).map(Number).sort((a,b)=>a-b);
 
-const state = { expanded:new Set([dayNums[0]]), poolExpanded:new Set(), search:"", catFilters:new Set(['all']) };
+const state = { expanded:new Set(), poolExpanded:new Set(), search:"", catFilters:new Set(['all']) };
 
 // --- Visited tracking, saved in this browser's localStorage. The key comes from trip.config.js so two trips never share ticks. ---
 const VISITED_KEY = (CFG.storageKey || window.TRIP_ID || 'trip') + '_visited_stops';
