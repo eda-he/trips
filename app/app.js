@@ -280,6 +280,8 @@ function syncMapMarkers(){
     ));
   }
 
+  // places marked visited stay in the day list (dimmed) but drop off the map
+  visible = visible.filter(s=> !visitedSet.has(stopKey(s)));
   const bounds = [];
   visible.forEach(s=>{
     const pinColor = s.must ? cssVar('--shu','#BC4B34') : (s.maybe ? '#8A8578' : cssVar('--indigo','#1C3155'));
