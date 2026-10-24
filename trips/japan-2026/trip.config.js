@@ -36,7 +36,7 @@ window.TRIP_CONFIG = {
 
   // Optional: extra pages for this trip, such as a packing or shopping list. Put the .html file in this folder;
   // a link to it appears under the header. Add a link back to the itinerary inside that page.
-  , pages: [ { label: "Drugstore list", file: "drugstore-list.html" }, { label: "Shopping extras", file: "shopping-extras.html" } ]
+  , pages: [ { label: "Drugstore list", file: "drugstore.html" }, { label: "Shopping extras", file: "shopping-extras.html" } ]
 
   // Optional: this trip's own look. Any colour or font variable at the top of app/styles.css can be set here.
   // Remove the slashes to use it. Without it the shared look applies.
