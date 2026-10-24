@@ -1,0 +1,111 @@
+name: Fetch shopping photos
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download photos
+        run: |
+          python3 - <<'PY'
+          import os, urllib.request
+          from urllib.parse import urlparse
+          ITEMS = [
+              ["biore", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301447647_01_b7067977f5e719a42719abc434b4fb84.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301447647.jpg"]],
+              ["anessa", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4909978147105_01_423a6f1254e3428a8de046173c1a00c4.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4909978147105.jpg"]],
+              ["skinaqua", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987241202041_01_46a1bc8776ddcd946db654112d33c314.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987241202041.jpg"]],
+              ["allie-03", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4973167034101_01_c01c341a6998dc04157b8128665d55c5.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4973167034101.jpg"]],
+              ["dp-bb", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/5/4514254101797_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4514254101797.jpg"]],
+              ["curel-bb", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301286505_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301286505.jpg"]],
+              ["shirojyun", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987241168446_01_98f462080d5b58bb2dbbf31ecdfa592c.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987241168446.jpg"]],
+              ["melano", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987241168583_01_483c2c8081f997499e0ffd339a7c17c6.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987241168583.jpg"]],
+              ["nameraka", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4964596701887_01_2605458d1a6ab271768141d0a745baab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4964596701887.jpg"]],
+              ["melano-reg", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987241169658_01_483c2c8081f997499e0ffd339a7c17c6.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987241169658.jpg"]],
+              ["transino-lotion", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987107673473_01_be73fc625443e6f63208f3f9ba75fedc.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987107673473.jpg"]],
+              ["transino-ess", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987107635396_01_f858bf41d54bbd4961e288d1dfebe1ee.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987107635396.jpg"]],
+              ["curel-wash", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301269348_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301269348.jpg"]],
+              ["naturie", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4903335695551_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4903335695551.jpg"]],
+              ["curel-cream", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301236210_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301236210.jpg"]],
+              ["gokujyun", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987241155736_01_b1593f7dadd38ce9ea26e4248f026b9c.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987241155736.jpg"]],
+              ["fino", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/5/4550516493583_01_2986afbb4e67430beec3450bd8a458b5.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4550516493583.jpg"]],
+              ["deonatulle", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4971825016582_01_1c0c5652bc44eb69db848f3039a235e9.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4971825016582.jpg"]],
+              ["megrhythm", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301460547_01_297355b1e328bd08cd0d1294963e3044.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301460547.jpg"]],
+              ["fancl-oil", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4908049688868_01_4b5f6414a50f5769c295b6925687fafa.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4908049688868.jpg"]],
+              ["minon-milk", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987107670472_01_1b22e33b5b31d48b6b9fcfaaedced9b3.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987107670472.jpg"]],
+              ["dprogram", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/5/4514254231463_01_ef26a610ab1944f8a02a36aac332d0d1.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4514254231463.jpg"]],
+              ["pair", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4903301025726_01_1328f3f5a7ab93cadc39f9adc907e733.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4903301025726.jpg"]],
+              ["dhc-lip", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/5/4511413302163_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4511413302163.jpg"]],
+              ["minon-uv", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987107632203_01_025d2cc032f49ae3529307b41e21adf5.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987107632203.jpg"]],
+              ["curel-uv", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301413666_01_9a6127aaf28732395ea836c4345b304d.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301413666.jpg"]],
+              ["curel-body", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301210722_01_23a96d3eadb08875d906ce231e75f12d.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301210722.jpg"]],
+              ["melano-mist", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987241198955_01_9d93e92e211f273145151c0c5c0e165c.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987241198955.jpg"]],
+              ["acnes-mist", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987241193851_01_6fe631204164a8bfb4983d5873580d87.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987241193851.jpg"]],
+              ["cool40", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987241100538_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987241100538.jpg"]],
+              ["rohto-z", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987241150175_01_308a87cbc7c21a251d7cf83b0ab01c6d.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987241150175.jpg"]],
+              ["sante-fx", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987084410443_01_237981c3a53d8c4f13cfac6eae7447fb.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987084410443.jpg"]],
+              ["liese-foam", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301444202_01_4ac1de5235888ee2087d677fedadc89b.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301444202.jpg"]],
+              ["beautylabo", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987205310515_01_c9582bde61d6c97516b1f2554885f931.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987205310515.jpg"]],
+              ["bigen-tr", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987205030901_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987205030901.jpg"]],
+              ["cape-active", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301424228_01_4326d982b284124b3ae9761a9d021c50.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301424228.jpg"]],
+              ["trie-10", ["https://onecosme.jp/storage/cosme/day/202406/dc7a7580f6b3828c78a0f5318b01a442.png", "https://fitter.cosme.net/media/product/10157/skuimg_1045527.jpg?target=600x600"]],
+              ["cape-3d", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301373755_01_4326d982b284124b3ae9761a9d021c50.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301373755.jpg"]],
+              ["kyusoku", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4903301138525_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4903301138525.jpg"]],
+              ["sarasara", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301448545_01_d41b3107c915c964aa433e7eed81decd.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301448545.jpg"]],
+              ["muhi", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987426002138_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987426002138.jpg"]],
+              ["kizu", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901730090889_01_f84fc6c649aeea938879add64289738d.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901730090889.jpg"]],
+              ["os1", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987035576402_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987035576402.jpg"]],
+              ["laquick", ["https://netshop.create-sd.co.jp/img/goods/L/4901525007023.jpg"]],
+              ["curel-sheet", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4901301396570_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4901301396570.jpg"]],
+              ["skinaqua-gel", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987241190850_01_cef2ba713e8d526b34d39bdd0a9beced.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4987241190850.jpg"]],
+              ["diane", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/5/4560119224309_01_f08d666c09654f607bd9ce50a85f8fab.jpg", "https://netshop.create-sd.co.jp/img/goods/L/4560119224309.jpg"]],
+              ["greenbell", ["https://shop.tsuruha.co.jp/media/catalog/product/1/0/10091912.jpg", "https://image.ksdenki.com/img/goods/L/49725/4972525053136_L.jpg"]],
+              ["hirumild", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987286317175_01_bbd4335b5e85443a5780a075bf2e48b3.jpg"]],
+              ["bigansui", ["https://netshop.create-sd.co.jp/img/goods/L/4902468113420.jpg"]],
+              ["yuskin", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4987353190311_01_f08d666c09654f607bd9ce50a85f8fab.jpg"]],
+              ["kairo", ["https://www.matsukiyococokara-online.com/store/media/catalog/product/4/9/4903336272041_01_aca0fb206391b50921e8631c29196991.jpg"]],
+              ["kayanoya", ["https://prcdn.freetls.fastly.net/release_image/79541/264/79541-264-174065f0ca7d0167d9c224d4d29bbbf6-1232x1232.png"]],
+              ["furikake", ["https://cdn.askul.co.jp/img/product/3L1/AH95999_3L1.jpg"]],
+              ["yuzukosho", ["https://cdn.askul.co.jp/img/product/3L1/AH82183_3L1.jpg"]],
+              ["mirin", ["https://cdn.askul.co.jp/img/product/3L1/XE34186_3L1.jpg"]],
+              ["soumi", ["https://cdn.askul.co.jp/img/product/3L1/AH95094_3L1.jpg"]],
+              ["wasabi", ["https://cdn.askul.co.jp/img/product/3L1/AH95057_3L1.jpg"]],
+              ["bulldog", ["https://cdn.askul.co.jp/img/product/3L1/AH95055_3L1.jpg"]],
+              ["amano", ["https://cdn.askul.co.jp/img/product/3L1/EA73596_3L1.jpg"]],
+              ["hobonichi", ["https://www.loft.co.jp/shop_assets/img/goods/L/4580812710343-L.jpg"]],
+              ["iroshizuku", ["https://image.biccamera.com/img/00000003346175_A01.jpg"]],
+              ["kakuno", ["https://image.biccamera.com/img/00000003305201_A01.jpg"]],
+              ["jetstream", ["https://image.biccamera.com/img/00000002415984_A01.jpg"]],
+              ["md", ["https://image.yodobashi.com/product/100/000/001/008/904/940/100000001008904940_10201.jpg"]],
+              ["mt", ["https://image.biccamera.com/img/00000010151106_A01.jpg"]],
+              ["sashiko", ["https://cdn.askul.co.jp/img/product/3L1/HE67331_3L1.jpg"]]
+          ]
+          out = "trips/japan-2026/img"
+          os.makedirs(out, exist_ok=True)
+          ok = fail = 0
+          for item_id, urls in ITEMS:
+              for u in urls:
+                  try:
+                      host = urlparse(u).scheme + "://" + urlparse(u).netloc + "/"
+                      req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1", "Referer": host})
+                      data = urllib.request.urlopen(req, timeout=30).read()
+                      if len(data) < 2000:
+                          raise ValueError("too small")
+                      open(os.path.join(out, item_id + ".jpg"), "wb").write(data)
+                      print("OK  ", item_id, u); ok += 1
+                      break
+                  except Exception as e:
+                      print("skip", item_id, u, e)
+              else:
+                  print("FAIL", item_id); fail += 1
+          print(f"done: {ok} saved, {fail} failed")
+          PY
+      - name: Commit photos
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add trips/japan-2026/img
+          git diff --cached --quiet || git commit -m "Add shopping list photos"
+          git push
