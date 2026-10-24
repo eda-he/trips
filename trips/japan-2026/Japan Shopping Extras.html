@@ -1,0 +1,404 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Japan Shopping Extras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F5F7F6; --surface:#FFFFFF; --ink:#18242E; --muted:#56646E; --line:#DCE3E1;
+  --accent:#2D7A68; --accent-soft:#E2F0EB; --sun:#B5651D; --sun-soft:#F8EBDD; --snow:#3E6A9A; --snow-soft:#E3ECF6;
+  --warn:#9A3B2E; --warn-soft:#F7E6E2; --must:#8A5A00; --must-soft:#FBEFD2;
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#121A1F; --surface:#19242B; --ink:#E6ECEA; --muted:#9AA9A6; --line:#2B3940;
+    --accent:#6FC3AC; --accent-soft:#1D3530; --sun:#E3A266; --sun-soft:#352A1F; --snow:#8DB4DE; --snow-soft:#1D2A38;
+    --warn:#E59585; --warn-soft:#3A2420; --must:#F0C46A; --must-soft:#3A2F17;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#121A1F; --surface:#19242B; --ink:#E6ECEA; --muted:#9AA9A6; --line:#2B3940;
+  --accent:#6FC3AC; --accent-soft:#1D3530; --sun:#E3A266; --sun-soft:#352A1F; --snow:#8DB4DE; --snow-soft:#1D2A38;
+  --warn:#E59585; --warn-soft:#3A2420; --must:#F0C46A; --must-soft:#3A2F17;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.6;padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:860px;margin:0 auto}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+header{padding-block:40px 20px}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(32px,6vw,52px);line-height:1.1;margin:8px 0 12px;text-wrap:balance}
+h1 .jp{display:block;font-size:.42em;color:var(--muted);font-weight:600;letter-spacing:.08em;margin-top:6px}
+.lede{max-width:62ch;color:var(--muted);margin:0}
+.profile{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0;list-style:none}
+.profile li{font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.filter{margin:16px 0 0;font-size:13.5px;color:var(--muted);max-width:66ch;border-left:3px solid var(--accent);padding-left:12px}
+
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:10px 8px;margin-bottom:8px;padding-top:max(10px,env(safe-area-inset-top))}
+nav ul{display:flex;gap:6px;overflow-x:auto;list-style:none;margin:0;padding:0;scrollbar-width:none}
+nav ul::-webkit-scrollbar{display:none}
+nav a{display:block;white-space:nowrap;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);text-decoration:none}
+nav a:hover{border-color:var(--accent);color:var(--accent)}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:10px}
+.progress{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-right:auto;font-variant-numeric:tabular-nums}
+.toggle{font:inherit;font-size:13.5px;font-weight:700;padding:7px 14px;border-radius:999px;border:1.5px solid var(--accent);background:var(--surface);color:var(--accent);cursor:pointer;min-height:36px}
+.toggle[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.toggle.must{border-color:var(--must);color:var(--must)}
+.toggle.must[aria-pressed="true"]{background:var(--must);color:var(--surface)}
+@media (max-width:560px){.progress{flex:1 1 100%}.toggle{flex:1 1 0}}
+section{scroll-margin-top:130px}
+
+section{padding-top:40px}
+section[hidden]{display:none}
+h2{font-family:var(--display);font-weight:800;font-size:28px;line-height:1.2;margin:0 0 6px;text-wrap:balance}
+h2 small{font-family:var(--body);font-weight:500;font-size:14px;color:var(--muted);margin-left:8px;letter-spacing:.06em}
+.intro{color:var(--muted);max-width:64ch;margin:0 0 18px}
+h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px;font-weight:700}
+
+.routine{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.routine{grid-template-columns:1fr}}
+.rcol{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.rcol h4{margin:0 0 10px;font-family:var(--display);font-size:20px}
+.rcol ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.rcol li::marker{font-family:var(--mono);color:var(--accent)}
+.rcol .sub{color:var(--muted);font-size:13.5px;display:block}
+
+/* product rows */
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:96px 1fr auto;gap:4px 16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:start}
+.item[hidden]{display:none}
+.pic{position:relative}
+.thumb{display:block;width:96px;height:96px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:10px;padding:4px;cursor:zoom-in}
+.thumb.missing{display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;line-height:1.3;color:var(--muted);background:var(--accent-soft);border-style:dashed;padding:6px;cursor:default}
+.item .name{font-weight:700;font-size:16.5px;line-height:1.35;display:block}
+.item .jp{display:block;font-size:14px;color:var(--muted);font-weight:500;margin-top:2px}
+.item p{margin:6px 0 0;max-width:62ch}
+.item .save{display:block;margin-top:6px;font-family:var(--mono);font-size:12.5px;color:var(--accent);font-variant-numeric:tabular-nums}
+.item .meta{grid-column:2 / 4;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:13.5px;margin-top:2px}
+.buy{grid-row:1;grid-column:3;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;user-select:none;white-space:nowrap;padding:6px 10px;border:1.5px solid var(--line);border-radius:999px;background:var(--surface)}
+.buy input{width:20px;height:20px;margin:0;accent-color:var(--accent);cursor:pointer}
+.item.done .buy{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+.tag.sun{background:var(--sun-soft);color:var(--sun)} .tag.snow{background:var(--snow-soft);color:var(--snow)}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.tag.must{background:var(--must-soft);color:var(--must)}
+.item.done .name{text-decoration:line-through;text-decoration-color:var(--muted)}
+.item.done .thumb,.item.done .body{opacity:.55}
+.empty{padding:14px 0;color:var(--muted);font-size:14px;border-bottom:1px solid var(--line)}
+@media (max-width:560px){
+  .item{grid-template-columns:84px 1fr;gap:4px 12px}
+  .thumb{width:84px;height:84px}
+  .buy{grid-column:2;grid-row:auto;justify-self:start;margin-top:8px}
+  .item .meta{grid-column:1 / 3}
+}
+
+#zoom{border:0;padding:0;background:transparent;max-width:min(92vw,520px);width:100%}
+#zoom::backdrop{background:rgba(0,0,0,.75)}
+#zoom img{display:block;width:100%;max-height:78vh;object-fit:contain;background:#fff;border-radius:12px}
+#zoom p{color:#fff;text-align:center;margin:10px 0 0;font-size:14px}
+
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:18px 0 0;font-size:14.5px;max-width:70ch}
+.note.info{border-color:var(--accent);background:var(--accent-soft)}
+.tips{display:grid;gap:12px;padding:0;list-style:none;margin:0}
+.tips li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.tips b{display:block;margin-bottom:2px}
+.method{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-top:18px}
+.method h4{margin:0 0 8px;font-family:var(--display);font-size:19px}
+.method ul{margin:0;padding-left:1.1em;display:grid;gap:6px;font-size:14.5px}
+.planner{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-bottom:14px}
+.plabel{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.seg button[aria-checked="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface);font-weight:700}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table.stock{width:100%;border-collapse:collapse;font-size:14.5px}
+.stock th{text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:10px 14px;border-bottom:1px solid var(--line)}
+.stock td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.stock td:nth-child(2){white-space:nowrap;color:var(--muted)}
+.stock .num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap}
+.stock td.num{font-size:16px;color:var(--ink)}
+.stock .small{display:block;font-size:12.5px;color:var(--muted)}
+.stock tfoot td{font-weight:700;border-bottom:0}
+.warnline{margin:12px 0 0;font-size:14px;color:var(--warn)}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+<style>
+.where{display:block;margin-top:6px;font-size:13.5px;color:var(--ink)}
+.where b{color:var(--muted);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
+.plan{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.plan li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14.5px}
+.plan b{display:block;font-family:var(--display);font-size:17px;margin-bottom:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">Last Tokyo days · Oct 24–27</div>
+  <h1>Japan Shopping Extras<span class="jp">追加の買い物リスト</span></h1>
+  <p class="lede">More things worth bringing home, beyond your drugstore list: a few more drugstore finds, food that gets through US customs, and stationery and craft supplies. Each has a photo, its Japanese name and where to get it on the days you have left. Tap <b>Bought</b> as you go; ticks stay on this device.</p>
+  <p class="filter">Same rules as the drugstore list: only things that are better in Japan or clearly cheaper, and that fit where you'll already be. Prices are from Japanese retailers in 2026 and vary by store. Where I couldn't confirm a price or opening hours, the item says so.</p>
+</header>
+
+<nav aria-label="Sections">
+  <ul>
+    <li><a href="#days">By day</a></li>
+    <li><a href="#drug">Drugstore</a></li>
+    <li><a href="#food">Food</a></li>
+    <li><a href="#paper">Stationery</a></li>
+    <li><a href="#craft">Crafts</a></li>
+    <li><a href="#customs">Customs</a></li>
+  </ul>
+  <div class="toolbar">
+    <div class="progress" id="progress" aria-live="polite"></div>
+    <button type="button" class="toggle must" id="t-must" aria-pressed="false">Must-buys only</button>
+    <button type="button" class="toggle" id="t-hide" aria-pressed="false">Hide bought</button>
+  </div>
+</nav>
+
+<section id="days" data-static>
+  <h2>Where to get them <small>日別</small></h2>
+  <p class="intro">Matched to places already on your plan, so nothing needs an extra trip.</p>
+  <ul class="plan">
+    <li><b>Sat 24 · Shinjuku evening</b>Okadaya Shinjuku (11:00–20:30), a huge craft store: ask for 刺し子 (sashiko) supplies. Don Quijote, already on your plan, for snacks and furikake. Any Matsukiyo or Sundrug for the drugstore items.</li>
+    <li><b>Sun 25 · Ginza</b>Kayanoya Ginza for dashi (Ginza 3-4-8, 11:00–20:00, about a block from MUJI Ginza). OK Store Ginza (8:30–21:30), a discount supermarket, for the supermarket items. Ginza Loft, already on your plan, for the Hobonichi Techo, pens, ink and washi tape. Itoya Ginza (Sundays 10:00–19:00, per Time Out) if you want a bigger stationery selection.</li>
+    <li><b>Mon 26 · Daikanyama</b>Kamawanu Daikanyama for tenugui, near Okura and Daikanyama T-Site, which are already on your plan. I couldn't confirm its Monday hours.</li>
+    <li><b>Tue 27 · Tokyo Station, before Haneda</b>Ippodo at Shin-Marunouchi Building B1 (opens 11:00) for tea. Seijo Ishii in the same building (opens 7:00) for any supermarket items you still need. Hands Tokyo, already on your plan, for any stationery you missed.</li>
+  </ul>
+</section>
+
+<section id="drug">
+  <h2>More drugstore finds <small>ドラッグストア</small></h2>
+  <p class="intro">Gaps the main list didn't cover: dry winter patches, whiteheads, chapped hands and cold days. All sold at Matsukiyo and Sundrug.</p>
+  <ul class="list" data-list="drug"></ul>
+  <p class="note"><b>Skip Japanese cold and cough medicines</b> such as Pabron or Lulu if the box lists ジヒドロコデイン (dihydrocodeine). It's a codeine-type ingredient that's a controlled substance in the US. Buy cold medicine at home instead.</p>
+</section>
+
+<section id="food">
+  <h2>Food to bring home <small>食品</small></h2>
+  <p class="intro">Shelf-stable, light, and free of meat, so they're the kind US customs lets through. Declare all food on your customs form anyway. Liquids and pastes go in your checked bag.</p>
+  <ul class="list" data-list="food"></ul>
+  <h3>From the supermarket</h3>
+  <p class="intro">Cheap everyday staples that are hard to find, pricier or a different formula at home. OK Store Ginza is the cheapest option on your route; Seijo Ishii by your hotel is pricier but easy. Bottles go in your checked bag, wrapped in a plastic bag.</p>
+  <ul class="list" data-list="grocery"></ul>
+  <p class="note"><b>Check the label before you buy:</b> skip anything listing 鶏がら, チキンエキス, ポークエキス or 牛脂 (chicken, pork or beef stock or fat). That rules out most curry roux, many white dashi (Mizkan 白だし contains chicken stock), and the eggplant flavor in Amano's miso soup variety pack. Also skip Kewpie mayonnaise: it's made with raw egg, so it doesn't count as cooked egg at US customs.</p>
+  <p class="note info"><b>Snacks:</b> Japan-only KitKat flavors, Jagabee, Pocky and Hi-Chew are cheapest at Don Quijote and supermarkets, so grab them in Shinjuku tonight. They're sealed sweets, which customs generally accepts. <b>Pantry browsing:</b> AKOMEYA TOKYO in Ginza is a curated Japanese pantry store (rice, seasonings, kitchen tools) if you have time on Sunday. I couldn't confirm its current Ginza address and hours.</p>
+</section>
+
+<section id="paper">
+  <h2>Stationery <small>文房具</small></h2>
+  <p class="intro">Japanese stationery often costs 2–4 times more abroad, and some lines and colors are only sold in Japan. These are the best-value buys.</p>
+  <ul class="list" data-list="paper"></ul>
+</section>
+
+<section id="craft">
+  <h2>Crafts <small>手芸・和雑貨</small></h2>
+  <p class="intro">For your hands-on side: supplies and traditional textiles that are hard to find or pricey at home.</p>
+  <ul class="list" data-list="craft"></ul>
+</section>
+
+<section id="customs" data-static>
+  <h2>US customs for food <small>税関</small></h2>
+  <ul class="tips">
+    <li><b>Declare all food</b>Tick "yes" for food on your customs form and list it. Undeclared food is usually taken away, and you can be fined. Declared items that aren't allowed are just confiscated.</li>
+    <li><b>Skip meat, including meat extracts</b>Pork and beef products from Japan are restricted. Most Japanese curry roux and instant ramen contain pork or chicken extract (ポークエキス, チキンエキス) and are often confiscated. Check the ingredient list.</li>
+    <li><b>Egg is fine when it's cooked and shelf-stable</b>USDA allows processed egg products from Japan for personal use if they're commercially cooked and sealed, like the egg in furikake.</li>
+    <li><b>No fresh produce</b>Fresh fruit and vegetables aren't allowed. Dried, sealed and packaged foods, tea, and sealed sweets are generally fine.</li>
+    <li><b>Skip refrigerated items</b>Mentaiko, fresh mochi and chilled sweets won't survive the flight anyway.</li>
+  </ul>
+</section>
+
+<footer>
+  Sources: <a href="https://direct.aphis.usda.gov/sites/default/files/import-alert-hpai-japan.pdf" target="_blank" rel="noopener">USDA APHIS import alert for Japan (Nov 2025)</a>; <a href="https://hungrytravelers.com/2024-update-on-bringing-food-through-us-customs/" target="_blank" rel="noopener">Hungry Travelers on US customs</a>; <a href="https://www.matsukiyococokara-online.com/" target="_blank" rel="noopener">Matsumoto Kiyoshi online</a>; <a href="https://netshop.create-sd.co.jp/shop/g/g4902468113420/" target="_blank" rel="noopener">Create SD</a>; <a href="https://www.ippodo-tea.co.jp/pages/store-shin-marunouchi" target="_blank" rel="noopener">Ippodo Shin-Marunouchi</a>; <a href="https://www.kayanoya.com/shop/tokyoginza-kayanoya/" target="_blank" rel="noopener">Kayanoya Ginza</a>; <a href="https://blog.onemall.jp/2026/09/11/japanese-stationery-brands/" target="_blank" rel="noopener">OneMall stationery guide</a>; <a href="https://www.timeout.com/tokyo/shopping/g-itoya" target="_blank" rel="noopener">Time Out on Itoya</a>; <a href="https://www.timeout.jp/tokyo/ja/ショッピング/okadaya-honten" target="_blank" rel="noopener">Time Out on Okadaya</a>. Photos are from retailer listings and may show a different color or size. This isn't medical or legal advice.
+</footer>
+</div>
+
+<dialog id="zoom" aria-label="Product photo"><img alt=""><p>Tap anywhere to close</p></dialog>
+
+<script>
+const MK='https://www.matsukiyococokara-online.com/store/media/catalog/product/';
+const BIC=id=>'https://image.biccamera.com/img/'+String(id).padStart(14,'0')+'_A01.jpg';
+const ASK=c=>'https://cdn.askul.co.jp/img/product/3L1/'+c+'_3L1.jpg';
+const ITEMS=[
+// ---------- Drugstore
+{id:'hirumild',list:'drug',must:1,name:'Hirumild Cream (heparinoid)',jp:'ヒルマイルドクリーム',
+ desc:'A heparinoid moisturizer, a Japanese OTC medicine with no US equivalent. Its active ingredient is the one Japanese doctors prescribe for dry skin (as Hirudoid), and in a randomized trial in dialysis patients it eased dry, itchy skin. Use it on dry winter patches, rough elbows and heels, and cracked hands. Keep it away from your eyes, and ask the pharmacist before putting it on your face.',
+ save:'¥1,705 (60 g)',tags:[['Winter','snow'],['OTC medicine','warn']],where:'Matsukiyo, Sundrug',link:['https://www.matsukiyococokara-online.com/store/catalog/product/view/id/4987286317175','Matsukiyo listing (JP)'],
+ img:[MK+'4/9/4987286317175_01_bbd4335b5e85443a5780a075bf2e48b3.jpg']},
+{id:'bigansui',list:'drug',name:'Meishoku Bigansui medicated toner',jp:'明色美顔水 薬用化粧水',
+ desc:'A cheap, long-selling acne toner with salicylic acid (BHA) to clear clogged pores and an antibacterial. It targets whiteheads, which the rest of your list doesn\'t. Wipe it on with cotton; don\'t leave it on like a mask. It has fragrance, so patch-test first, and use it on nights without adapalene.',
+ save:'¥968 (90 ml)',tags:[['Whiteheads'],['Acne']],where:'Larger drugstores; not always stocked',link:['https://netshop.create-sd.co.jp/shop/g/g4902468113420/','Create SD listing (JP)'],
+ img:['https://netshop.create-sd.co.jp/img/goods/L/4902468113420.jpg']},
+{id:'yuskin',list:'drug',name:'Yuskin hand cream',jp:'ユースキン',
+ desc:'Japan\'s classic yellow cream for chapped, cracked hands, with vitamin E, glycyrrhetinic acid and camphor. Thick but not greasy, and it lasts a whole winter.',
+ save:'¥1,078 (120 g)',tags:[['Winter','snow'],['Hands']],where:'Any drugstore',link:['https://www.matsukiyococokara-online.com/store/catalog/product/view/id/4987353190311','Matsukiyo listing (JP)'],
+ img:[MK+'4/9/4987353190311_01_f08d666c09654f607bd9ce50a85f8fab.jpg']},
+{id:'kairo',list:'drug',name:'Stick-on heat packs',jp:'貼るカイロ（ホカロン 貼る）',
+ desc:'Disposable warmers that stick to the inside of your clothes and stay warm for hours. Cheap, and handy for the rest of the trip and for winter at home.',
+ save:'¥492 (10 pack)',tags:[['Winter','snow'],['Cheap']],where:'Any drugstore or convenience store',link:['https://www.matsukiyococokara-online.com/store/catalog/product/view/id/4903336272041','Matsukiyo listing (JP)'],
+ img:[MK+'4/9/4903336272041_01_aca0fb206391b50921e8631c29196991.jpg']},
+// ---------- Food
+{id:'kayanoya',list:'food',must:1,name:'Kayanoya dashi packs',jp:'茅乃舎だし',
+ desc:'Hugely popular dashi packs: roasted flying fish, bonito, sardine and kombu in tea-bag pouches. Simmer one for miso soup, noodles or simmered dishes. No meat in the listed ingredients. The Ginza flagship also sells a premium version you can only buy there.',
+ save:'Japan ¥2,268 (30 packs, list price) · US $34.80 · about 57% less',tags:[['Pantry'],['Cheaper']],where:'Kayanoya Ginza, Sun 25',link:['https://www.kayanoya.com/dashi/','Kayanoya (JP)'],
+ img:['https://prcdn.freetls.fastly.net/release_image/79541/264/79541-264-174065f0ca7d0167d9c224d4d29bbbf6-1232x1232.png']},
+{id:'ippodo',list:'food',must:1,name:'Ippodo tea (hojicha or sencha)',jp:'一保堂茶舗 ほうじ茶・煎茶',
+ desc:'Kyoto\'s 300-year-old tea house. Hojicha (roasted, low caffeine) and sencha are easy to find and well priced. Matcha is in short supply worldwide, and Ippodo limits how much each customer can buy, so ask staff. Tea leaves pass US customs.',
+ save:'',tags:[['Tea']],where:'Ippodo Shin-Marunouchi B1, Tue 27 (11:00–21:00)',link:['https://www.ippodo-tea.co.jp/pages/store-shin-marunouchi','Ippodo store (JP)'],
+ img:null},
+{id:'furikake',list:'grocery',name:'Marumiya furikake mini packs',jp:'丸美屋 のりたま＆バラエティー ミニパック',
+ desc:'Rice seasoning in single-serve packets, in several flavors including the classic noritama (seaweed and egg). Light, cheap, and the cooked, shelf-stable egg is allowed through US customs.',
+ save:'Price not confirmed (a few hundred yen)',tags:[['Pantry'],['Light']],where:'OK Store Ginza, Seijo Ishii, Don Quijote',link:['https://www.askul.co.jp/p/AH95999/','Askul listing (JP)'],
+ img:[ASK('AH95999')]},
+{id:'yuzukosho',list:'grocery',name:'Yuzu kosho',jp:'柚子こしょう（フンドーキン 青柚子こしょう）',
+ desc:'A paste of yuzu peel, green chili and salt that lifts grilled fish, noodles, dumplings and dressings. A small jar lasts months and costs a fraction of US specialty prices. Pack it in your checked bag.',
+ save:'Price not confirmed (a few hundred yen)',tags:[['Pantry']],where:'Supermarkets, depachika',link:['https://www.askul.co.jp/p/AH82183/','Askul listing (JP)'],
+ img:[ASK('AH82183')]},
+{id:'mirin',list:'grocery',must:1,name:'Takara hon mirin',jp:'タカラ本みりん「醇良」',
+ desc:'Real brewed mirin, made from glutinous rice and rice koji, with about 14% alcohol and no salt. US stores mostly sell aji-mirin, a cheaper mirin-style seasoning made with syrup; real hon mirin is an import there and pricey. The light plastic bottle is easier to pack than glass. Look for 本みりん on the label, not みりん風調味料.',
+ save:'Price not confirmed (cheap here)',tags:[['Pantry'],['Checked bag','warn']],where:'OK Store Ginza, Seijo Ishii',link:['https://www.justonecookbook.com/pantry_items/mirin/','Hon mirin vs aji-mirin'],
+ img:[ASK('XE34186')]},
+{id:'soumi',list:'grocery',must:1,name:'Soumi no Tsuyu noodle and cooking base',jp:'創味のつゆ',
+ desc:'A concentrated soy, bonito and mackerel base that Japanese home cooks swear by. Dilute it for soba or udon broth, or use it in simmered dishes and rice bowls. No meat in the ingredients.',
+ save:'About ¥900–1,100 (1 L)',tags:[['Pantry'],['Checked bag','warn']],where:'OK Store Ginza, Seijo Ishii',link:['https://www.askul.co.jp/p/AH95094/','Askul listing (JP)'],
+ img:[ASK('AH95094')]},
+{id:'wasabi',list:'grocery',name:'S&B grated wasabi (Japanese version)',jp:'エスビー おろし生わさび',
+ desc:'A tube of grated wasabi in which at least half the wasabi is real wasabi, topped up with horseradish. Most wasabi sold abroad is mainly horseradish. Cheap and light.',
+ save:'About ¥200 (80 g tube)',tags:[['Light'],['Cheap']],where:'Any supermarket',link:['https://greenbeans.com/products/14901002189522/details','Ingredients (JP)'],
+ img:[ASK('AH95057')]},
+{id:'bulldog',list:'grocery',name:'Bull-Dog tonkatsu sauce',jp:'ブルドック とんかつソース',
+ desc:'The thick, fruity sauce for tonkatsu, croquettes and cabbage, made from tomato, apple, prune and vegetables. No meat. Cheap here, and the plastic bottle packs well.',
+ save:'¥268 (300 ml)',tags:[['Pantry'],['Checked bag','warn']],where:'Any supermarket',link:['https://greenbeans.com/products/10000049753254/details','Ingredients (JP)'],
+ img:[ASK('AH95055')]},
+{id:'amano',list:'grocery',name:'Amano freeze-dried miso soup',jp:'アマノフーズ おみそ汁 とうふ',
+ desc:'Freeze-dried blocks that turn into proper miso soup with tofu, green onion and wakame when you add hot water. Light and much better than powdered instant miso. Buy single-flavor boxes such as とうふ (tofu); the eggplant one in the variety pack contains chicken.',
+ save:'About ¥1,100 (10 servings)',tags:[['Light'],['Quick meal']],where:'OK Store Ginza, Seijo Ishii, Don Quijote',link:['https://www.askul.co.jp/p/EA73596/','Askul listing (JP)'],
+ img:[ASK('EA73596')]},
+// ---------- Stationery
+{id:'hobonichi',list:'paper',must:1,name:'Hobonichi Techo 2027 (Original, A6)',jp:'ほぼ日手帳 2027 オリジナル',
+ desc:'The cult daily planner on thin Tomoe River paper. The 2027 books are out now, and Japan has the full range of covers and sizes, including Japan-only designs. The book alone, without a cover, is the cheapest way in.',
+ save:'¥2,860 (book only)',tags:[['Planner']],where:'Ginza Loft, Sun 25; Hobonichi store at Tokyo Station',link:['https://www.loft.co.jp/store/g/g4580812710343/','Loft listing (JP)'],
+ img:['https://www.loft.co.jp/shop_assets/img/goods/L/4580812710343-L.jpg']},
+{id:'iroshizuku',list:'paper',name:'Pilot Iroshizuku fountain pen ink',jp:'パイロット 色彩雫（いろしずく） 50ml',
+ desc:'Pilot\'s famous ink line, with colors named after Japanese nature. A good pair with the Kakuno pen below.',
+ save:'¥2,010 (50 ml)',tags:[['Ink']],where:'Itoya or Ginza Loft, Sun 25',link:['https://www.biccamera.com/bc/item/3346175/','Bic Camera listing (JP)'],
+ img:[BIC(3346175)]},
+{id:'kakuno',list:'paper',must:1,name:'Pilot Kakuno fountain pen',jp:'パイロット カクノ',
+ desc:'A cheap, sturdy starter fountain pen with a smiling face on the nib. Writes smoothly, takes cartridges or a converter, and comes in many colors.',
+ save:'Price not confirmed (usually around ¥1,000)',tags:[['Pens'],['Cheap']],where:'Itoya, Loft or Hands',link:['https://www.biccamera.com/bc/item/3305201/','Bic Camera listing (JP)'],
+ img:[BIC(3305201)]},
+{id:'jetstream',list:'paper',must:1,name:'Jetstream 4&1 multi pen',jp:'ジェットストリーム 4&1',
+ desc:'Four smooth ballpoint colors plus a mechanical pencil in one pen. Japan has many more colors and limited editions than the US.',
+ save:'',tags:[['Pens']],where:'Loft, Itoya, Hands',link:['https://www.biccamera.com/bc/item/2415984/','Bic Camera listing (JP)'],
+ img:[BIC(2415984)]},
+{id:'md',list:'paper',name:'MD Notebook (A5)',jp:'MDノート A5',
+ desc:'Midori\'s cream-colored paper notebook, loved for fountain pens. Plain, lined and grid versions in several sizes.',
+ save:'About ¥990 (A5)',tags:[['Notebook']],where:'Itoya, Loft, Hands',link:['https://www.yodobashi.com/product/100000001008904940/','Yodobashi listing (JP)'],
+ img:['https://image.yodobashi.com/product/100/000/001/008/904/940/100000001008904940_10201.jpg']},
+{id:'mt',list:'paper',name:'mt washi tape',jp:'マスキングテープ mt',
+ desc:'The original Japanese washi tape, in hundreds of patterns, many of them seasonal or sold only in Japan. Light and cheap.',
+ save:'About ¥250–400 a roll',tags:[['Washi'],['Light']],where:'Loft, Itoya, Hands',link:['https://www.biccamera.com/bc/item/10151106/','Bic Camera listing (JP)'],
+ img:[BIC(10151106)]},
+// ---------- Crafts
+{id:'sashiko',list:'craft',must:1,name:'Olympus sashiko kit',jp:'オリムパス 刺し子キット 花ふきん',
+ desc:'A starter kit for sashiko, Japanese running-stitch embroidery: a printed cotton cloth, sashiko thread, needles, a thimble and instructions. You end up with a usable dishcloth. Olympus and Daruma threads cost far less here than abroad, so grab a few extra skeins.',
+ save:'About ¥1,300 a kit',tags:[['Hands-on'],['Traditional']],where:'Okadaya Shinjuku, Sat 24 (11:00–20:30)',link:['https://www.askul.co.jp/p/HE67331/','Askul listing (JP)'],
+ img:[ASK('HE67331')]},
+{id:'tenugui',list:'craft',name:'Hand-dyed tenugui',jp:'手ぬぐい（かまわぬ・中川政七商店）',
+ desc:'Thin cotton cloths in traditional Edo and modern patterns. Use them as towels, wraps, napkins or wall hangings. Kamawanu specializes in them; Nakagawa Masashichi, on your brand list, has its own range.',
+ save:'Prices not confirmed',tags:[['Traditional'],['Light']],where:'Kamawanu Daikanyama, Mon 26',link:['https://www.gotokyo.org/jp/story/walks-and-tours/daikanyama/index.html','Go Tokyo on Daikanyama'],
+ img:null},
+];
+
+(function(){
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const lists={};
+  document.querySelectorAll('[data-list]').forEach(ul=>lists[ul.dataset.list]=ul);
+  ITEMS.forEach(it=>{
+    const li=document.createElement('li');
+    li.className='item'; li.dataset.id=it.id; if(it.must) li.dataset.must='1';
+    const s=it.img?['img/'+it.id+'.jpg'].concat(it.img):[];
+    const pic=s.length
+      ? '<img class="thumb" src="'+esc(s[0])+'" data-fallback="'+esc(s.slice(1).join('|'))+'" alt="'+esc(it.name)+'" loading="lazy" referrerpolicy="no-referrer">'
+      : '<span class="thumb missing">No photo found<br>Show staff the name</span>';
+    const tags=(it.must?'<span class="tag must">Must buy</span>':'')+it.tags.map(t=>'<span class="tag'+(t[1]?' '+t[1]:'')+'">'+esc(t[0])+'</span>').join('');
+    li.innerHTML=
+      '<div class="pic">'+pic+'</div>'+
+      '<div class="body"><span class="name">'+esc(it.name)+'</span><span class="jp" lang="ja">'+esc(it.jp)+'</span>'+
+      '<p>'+esc(it.desc)+'</p>'+(it.save?'<span class="save">'+esc(it.save)+'</span>':'')+
+      '<span class="where"><b>Where</b>'+esc(it.where)+'</span></div>'+
+      '<label class="buy"><input type="checkbox" aria-label="Bought '+esc(it.name)+'"> Bought</label>'+
+      '<div class="meta">'+tags+'<a href="'+esc(it.link[0])+'" target="_blank" rel="noopener">'+esc(it.link[1])+' ↗</a></div>';
+    lists[it.list].appendChild(li);
+  });
+  document.querySelectorAll('img.thumb').forEach(img=>{
+    img.addEventListener('error',()=>{
+      const rest=(img.dataset.fallback||'').split('|').filter(Boolean);
+      if(rest.length){img.src=rest.shift();img.dataset.fallback=rest.join('|');}
+      else{const sp=document.createElement('span');sp.className='thumb missing';sp.innerHTML='No photo<br>Show staff the name';img.replaceWith(sp);}
+    });
+  });
+  const z=document.getElementById('zoom'), zi=z.querySelector('img');
+  document.addEventListener('click',e=>{
+    const t=e.target;
+    if(t.matches && t.matches('img.thumb') && z.showModal){zi.src=t.currentSrc||t.src;zi.alt=t.alt;z.showModal();}
+    else if(z.open && z.contains(t)){z.close();}
+  });
+  const KEY='jp-extras-ticks', VKEY='jp-extras-view';
+  let saved={}, view={hide:false,must:false};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){}
+  try{view=Object.assign(view,JSON.parse(localStorage.getItem(VKEY)||'{}')||{})}catch(e){}
+  const items=[...document.querySelectorAll('.item')];
+  const prog=document.getElementById('progress');
+  const tHide=document.getElementById('t-hide'), tMust=document.getElementById('t-must');
+  function apply(){
+    tHide.setAttribute('aria-pressed',String(view.hide));
+    tMust.setAttribute('aria-pressed',String(view.must));
+    items.forEach(li=>{li.hidden=(view.hide&&li.classList.contains('done'))||(view.must&&!li.dataset.must);});
+    Object.values(lists).forEach(ul=>{
+      let msg=ul.querySelector('.empty');
+      const its=[...ul.querySelectorAll('.item')];
+      const visible=its.some(li=>!li.hidden);
+      const relevant=its.some(li=>!(view.must&&!li.dataset.must));
+      if(!visible&&relevant){if(!msg){msg=document.createElement('li');msg.className='empty';ul.appendChild(msg);}msg.textContent='Everything here is bought.';}
+      else if(msg) msg.remove();
+    });
+    document.querySelectorAll('section:not([data-static])').forEach(sec=>{
+      sec.hidden=view.must && ![...sec.querySelectorAll('.item')].some(li=>li.dataset.must);
+    });
+    const pool=items.filter(li=>!view.must||li.dataset.must);
+    const n=pool.filter(li=>li.classList.contains('done')).length;
+    prog.textContent=n+' of '+pool.length+(view.must?' must-buys':' items')+' bought';
+    try{localStorage.setItem(VKEY,JSON.stringify(view))}catch(e){}
+  }
+  items.forEach(li=>{
+    const box=li.querySelector('.buy input');
+    if(saved[li.dataset.id]){box.checked=true;li.classList.add('done')}
+    box.addEventListener('change',()=>{
+      li.classList.toggle('done',box.checked);
+      saved[li.dataset.id]=box.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}
+      apply();
+    });
+  });
+  tHide.addEventListener('click',()=>{view.hide=!view.hide;apply();});
+  tMust.addEventListener('click',()=>{view.must=!view.must;apply();});
+  apply();
+})();
+</script>
+</body>
+</html>
+
+</body></html>
